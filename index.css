@@ -1,0 +1,21 @@
+.main-section{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+body{
+    background-color: rgb(255, 255, 255);
+}
+.cart{
+    width: 400px;
+    border: 1px solid orange;
+}
+
+@media (min-width: 30em) and (max-width: 50em) {
+    .main-section{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+  
