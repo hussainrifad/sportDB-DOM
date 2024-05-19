@@ -36,7 +36,6 @@ const fetchData = async(url) => {
 const handleAddToCart = async(id) => {
     const data = await fetchData(playerURL+id);
     const player = data.players[0];
-    console.log(cart);
     if(cart.totalPlayers < 12){
         const isYes = cart.list.find((pl) => pl.idPlayer === player.idPlayer);
         if(isYes){
@@ -95,14 +94,16 @@ const handleDetail = async(id) => {
     const data = await fetchData(playerURL+id);
     const player = data.players[0];
     openModal(player)
-    
+
 }
 
 const showPlayers = async(key) => {
     const data = await fetchData(playersURL+key);
     playersData = data.player;
     const cardParent = document.getElementById('card-parent');
-
+    if(cardParent.hasChildNodes()){
+        cardParent.innerHTML = `<div></div>`
+    }
     for(let p of playersData){
         const children = document.createElement('div');
         children.innerHTML = `
